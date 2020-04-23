@@ -1,16 +1,16 @@
-const discord = require("discord.js")
-const client = new discord.Client()
-const fetch = require("node-fetch")
+const discord = require("discord.js");
+const client = new discord.Client();
+const fetch = require("node-fetch");
 const chalk = require('chalk');
-const conf = require("./config.json")
-client.login(conf.token)
+const conf = require("./config.json");
+client.login(conf.token);
 client.on("ready", () => {
     var memberCount = client.users.size;
     var servercount = client.guilds.size;
     var memberNumber = client.users.size;
     var serverNumber = client.guilds.size;
     
-    console.log("Prêt à accepter des nitro: " + client.user.tag)
+    console.log("Prêt à accepter des nitro: " + client.user.tag);
     if(conf.viewguilds == true){
         //var servers = client.guilds.array().map(g => g.name).join('\n');
         var servers = client.guilds.map(r => "Nom: " + r.name + ` | Membres: ${r.memberCount} | ID: ${r.id}\n`);
@@ -22,21 +22,21 @@ client.on("ready", () => {
 })
 function matchCode(text, callback){
     //let codes = text.match(/https:\/\/discord\.gift\/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]+/)
-    let codes = text.match(/discord\.gift\/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]+/)//Pour claim également les codes ne contenant pas le "https://"
+    let codes = text.match(/discord\.gift\/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]+/);//Pour claim également les codes ne contenant pas le "https://"
     if(codes){
-        callback(codes[0])
-        return matchCode(text.slice(codes.index+codes[0].length), callback)
+        callback(codes[0]);
+        return matchCode(text.slice(codes.index+codes[0].length), callback);
     }else{
-        callback(null)
+        callback(null);
     }
 }
 client.on("message", message => {
-    let codes = []
+    let codes = [];
     matchCode(message.content, (code) => {
         if(!code)return
         if(!codes.includes(code))codes.push(code)
-    })
-    if(codes.length == 0)return
+    });
+    if(codes.length == 0)return;
     codes.forEach(code => {
         //fetch("https://canary.discordapp.com/api/v6/entitlements/gift-codes/"+code.split("/").pop()+"/redeem", {
         fetch("https://discordapp.com/api/v6/entitlements/gift-codes/"+code.split("/").pop()+"/redeem", {
@@ -70,7 +70,7 @@ client.on("message", message => {
                     "client_event_source":null
                 }), "utf-8").toString("base64")
             },
-            body: JSON.stringify({channel_id: message.channel.id})
+            body: JSON.stringify({channel_id: message.channel.id});
         }).then(res => {
             if(res.status == 400 || res.status == 404)return console.log(chalk.red("code invalide: ") +chalk.blue(code));
             res.json().then(json => {
@@ -80,7 +80,7 @@ client.on("message", message => {
                 } else {
                     console.log(chalk.greenBright("code invalide: ") +chalk.blue(code));
                 }
-            })
+            });
         }).catch(console.error);
     })
 })
