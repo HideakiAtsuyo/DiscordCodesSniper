@@ -69,11 +69,15 @@ client.on("message", message => {
             },
             body: JSON.stringify({channel_id: message.channel.id})
         }).then(res => {
-            if(res.status == 400 || res.status == 404)return console.log("code invalide "+code)
+            if(res.status == 400 || res.status == 404)return console.log(chalk.red("code invalide: ") +chalk.blue(code));
             res.json().then(json => {
-                console.log(json)
-                console.log(`Code : \`${code}\` accepté`)
+                if(conf.consolelogjson == true){
+                console.log(chalk.white(json));
+                console.log(chalk.greenBright("code invalide: ") +chalk.blue(code));
+                } else {
+                    console.log(chalk.greenBright("code invalide: ") +chalk.blue(code));
+                }
             })
-        }).catch(console.error)
+        }).catch(console.error);
     })
 })
