@@ -1,4 +1,5 @@
 {
 	"token": "Your token",
-	"consolelogjson": true
+	"consolelogjson": true,
+	"viewguilds": true
 }
