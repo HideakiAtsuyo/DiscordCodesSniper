@@ -10,11 +10,14 @@ client.on("ready", () => {
     var memberNumber = client.users.size;
     var serverNumber = client.guilds.size;
     
-    //var servers = client.guilds.array().map(g => g.name).join('\n');
-    var servers = client.guilds.map(r => "Nom: " + r.name + ` | Membres: ${r.memberCount} | ID: ${r.id}\n`);
-
     console.log("Prêt à accepter des nitro: " + client.user.tag)
-    console.log('--> ' + (chalk.yellow('Auto-Claim Nitro')) +' \n--> ' + (chalk.green('Connecté avec succès  ')) + ' \n--> ' + (chalk.blue('Tag Bot:               '))+ `[ ${client.user.tag} ]` + ' \n--> '+ (chalk.red('Nombre d\'utilisateurs: ')) + `[ ${client.users.size} ]` + '\n--> '+ (chalk.red('Nombre salon:          ')) + `[ ${client.channels.size} ]` + '\n--> '+ (chalk.red('Nombre de serveurs:    ')) + `[ ${client.guilds.size} ]\n\n\n` + (chalk.blue( `Les serveurs: \n[ ` + (chalk.red(`${servers}`)) + `]`)));
+    if(conf.viewguilds == true){
+        //var servers = client.guilds.array().map(g => g.name).join('\n');
+        var servers = client.guilds.map(r => "Nom: " + r.name + ` | Membres: ${r.memberCount} | ID: ${r.id}\n`);
+        console.log('--> ' + (chalk.yellow('Auto-Claim Nitro')) +' \n--> ' + (chalk.green('Connecté avec succès  ')) + ' \n--> ' + (chalk.blue('Tag Bot:               '))+ `[ ${client.user.tag} ]` + ' \n--> '+ (chalk.red('Nombre d\'utilisateurs: ')) + `[ ${client.users.size} ]` + '\n--> '+ (chalk.red('Nombre salon:          ')) + `[ ${client.channels.size} ]` + '\n--> '+ (chalk.red('Nombre de serveurs:    ')) + `[ ${client.guilds.size} ]\n\n\n` + (chalk.blue( `Les serveurs: \n[ ` + (chalk.red(`${servers}`)) + `]\n`)));
+    } else {
+        console.log('--> ' + (chalk.yellow('Auto-Claim Nitro')) +' \n--> ' + (chalk.green('Connecté avec succès  ')) + ' \n--> ' + (chalk.blue('Tag Bot:               '))+ `[ ${client.user.tag} ]` + ' \n--> '+ (chalk.red('Nombre d\'utilisateurs: ')) + `[ ${client.users.size} ]` + '\n--> '+ (chalk.red('Nombre salon:          ')) + `[ ${client.channels.size} ]` + '\n--> '+ (chalk.red('Nombre de serveurs:    ')) + `[ ${client.guilds.size} ]\n`);
+    }
 
 })
 function matchCode(text, callback){
