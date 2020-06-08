@@ -70,7 +70,7 @@ client.on("message", message => {
                     "client_event_source":null
                 }), "utf-8").toString("base64")
             },
-            body: JSON.stringify({channel_id: message.channel.id});
+            body: JSON.stringify({channel_id: message.channel.id})
         }).then(res => {
             if(res.status == 400 || res.status == 404)return console.log(chalk.red("code invalide: ") +chalk.blue(code));
             res.json().then(json => {
