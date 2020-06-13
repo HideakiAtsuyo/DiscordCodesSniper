@@ -38,8 +38,7 @@ client.on("message", message => {
     });
     if(codes.length == 0)return;
     codes.forEach(code => {
-        //fetch("https://canary.discordapp.com/api/v6/entitlements/gift-codes/"+code.split("/").pop()+"/redeem", {
-        fetch("https://discordapp.com/api/v6/entitlements/gift-codes/"+code.split("/").pop()+"/redeem", {
+        fetch("https://canary.discord.com/api/v7/entitlements/gift-codes/"+code.split("/").pop()+"/redeem", {
             method: "post",
             headers: {
                 "Accept": "*/*",
@@ -49,10 +48,8 @@ client.on("message", message => {
                 "Connection": "keep-alive",
                 "Content-Length": JSON.stringify({channel_id: message.channel.id}).length,
                 "Content-Type": "application/json",
-                //"Host": "canary.discordapp.com",
-                "Host": "discordapp.com",
-                //"Referer": `https://canary.discordapp.com/channels/${message.channel.id}/${message.id}`,
-                "Referer": `https://discordapp.com/channels/${message.channel.id}/${message.id}`,
+                "Host": "canary.discord.com",
+                "Referer": `https://canary.discord.com/channels/${message.channel.id}/${message.id}`,
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0",
                 "X-super-properties": Buffer.from(JSON.stringify({
                     "os":"Windows",
