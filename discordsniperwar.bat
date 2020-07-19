@@ -26,7 +26,7 @@ goto ask
 :Launch
 Title Discord Sniper - Started
 cls
-node index.js
+node sniper.js
 timeout 3
 goto Launch
 
