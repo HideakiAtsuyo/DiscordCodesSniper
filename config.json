@@ -1,5 +1,8 @@
 {
 	"token": "Your token",
+	"webhookid": "",
+	"webhooktoken": "",
+	"postwebhook": true,
 	"consolelogjson": true,
 	"viewguilds": false
 }

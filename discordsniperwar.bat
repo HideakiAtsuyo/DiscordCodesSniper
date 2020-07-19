@@ -1,10 +1,10 @@
 @echo off
-Title Nitro Auto Claimer
+Title Discord Sniper
 cls
 color 0
 
 :ask
-Title Nitro Auto Claimer - Home
+Title Discord Sniper - Home
 echo 1) Install modules
 echo 2) Launch
 echo 3) Exit
@@ -16,7 +16,7 @@ if /I "%choix%"=="3" (goto :End)
 goto ask
  
 :Install
-Title Nitro Auto Claimer - Installation
+Title Discord Sniper - Installation
 cls
 npm i
 echo Finished!
@@ -24,7 +24,7 @@ timeout 3
 goto ask
  
 :Launch
-Title Nitro Auto Claimer - Started
+Title Discord Sniper - Started
 cls
 node index.js
 timeout 3

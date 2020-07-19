@@ -1,10 +1,10 @@
 {
-  "name": "nitroclaim",
+  "name": "discordcodesclaim",
   "version": "1.0.0",
   "description": "",
-  "main": "nitro.js",
+  "main": "sniper.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node sniper.js"
   },
   "author": "",
   "license": "MIT",
