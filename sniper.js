@@ -17,10 +17,6 @@ client.on("ready", () => {
         memberNumber = client.users.size,
         serverNumber = client.guilds.size;
 
-    if (conf.postwebhook != true || conf.postwebhook != false) console.log("Verify config.json (postwebhook setting)") return process.exit(-1);
-    if (conf.consolelogjson != true || conf.consolelogjson != false) console.log("Verify config.json (consolelogjson setting)") return process.exit(-1);
-    if (conf.viewguilds != true || conf.viewguilds != false) console.log("Verify config.json (viewguilds setting)") return process.exit(-1);
-
     console.log("Ready to Auto-Claim Discord Gifts: " + client.user.tag);
     if (conf.viewguilds == true) {
         //var servers = client.guilds.array().map(g => g.name).join('\n');
