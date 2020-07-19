@@ -15,4 +15,4 @@ WebHook Token: 8SgtqZgY5w-Ol6yDbS4f3B4H01DHQ6AJw_0JuWIhMMZTqT13fktAH5IOaGsUm5dx9
 - Select `1` = Install the needed modules
 - Select `2` = Launch the Sniper | Auto Claimer
 
-Update not tested! Open an issue for bugs etc.. :)
+Update not tested! Open an issue for bugs etc.. :)<br>The code can be simplified but for an open-source it is useless
