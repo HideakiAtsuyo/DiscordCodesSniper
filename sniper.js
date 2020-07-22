@@ -1,8 +1,9 @@
-const discord = require("discord.js"),
+const Discord = require("discord.js"),
     client = new discord.Client(),
     fetch = require("node-fetch"),
     chalk = require('chalk'),
-    conf = require("./config.json");
+    conf = require("./config.json"),
+    logswebhook = new Discord.WebhookClient(conf.webhookid, conf.webhooktoken);
 
 try {
     client.login(conf.token);
@@ -29,7 +30,6 @@ client.on("ready", () => {
 })
 
 function webhook(codetoclaim, validorno) {
-    const logswebhook = new Discord.WebhookClient(conf.webhookid, conf.webhooktoken);
     logswebhook.send(`code ${validorno} : ${codetoclaim}`)
 }
 
