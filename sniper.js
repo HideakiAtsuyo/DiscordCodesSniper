@@ -1,5 +1,5 @@
 const Discord = require("discord.js"),
-    client = new discord.Client(),
+    client = new Discord.Client(),
     fetch = require("node-fetch"),
     chalk = require('chalk'),
     conf = require("./config.json"),
