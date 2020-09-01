@@ -2,7 +2,7 @@
 	"token": "Your token",
 	"webhookid": "",
 	"webhooktoken": "",
-	"postwebhook": true,
+	"postwebhook": false,
 	"consolelogjson": true,
 	"viewguilds": false
 }
